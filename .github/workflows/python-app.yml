@@ -21,18 +21,20 @@ jobs:
     - name: Install dependencies
       run: |
         python -m venv venv
-        source venv/bin/activate
+        source venv/bin/activate # Nous allons garder ça pour que pip s'installe dans le venv
         pip install -r requirements.txt
 
     - name: Run tests (si tu en as)
       run: |
-        source venv/bin/activate
+        # Nous allons utiliser directement l'interpréteur Python du venv
+        . venv/bin/activate
         # Ajoute ici la commande pour exécuter tes tests
-        # Par exemple: pytest
+        # Par exemple: python -m pytest
         echo "Pas de tests configurés pour l'instant"
 
     - name: Lint with Flake8
       run: |
-        source venv/bin/activate
+        # Nous allons utiliser directement l'interpréteur Python du venv
+        . venv/bin/activate
         pip install flake8
         flake8 .
